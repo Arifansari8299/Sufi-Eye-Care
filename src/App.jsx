@@ -7,36 +7,45 @@ import Doctors from "./components/Doctors";
 import Blogs from "./components/Blogs";
 import Footer from "./components/Footer";
 import MapSection from "./components/MapSection";
+import { FaWhatsapp } from "react-icons/fa";
+
 const App = () => {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Navbar />
       <main>
         <div id="home">
           <Home />
         </div>
-
         <div id="about">
           <About />
         </div>
-
         <div id="services">
           <Services />
         </div>
-
         <div id="doctors">
           <Doctors />
         </div>
-
         <div id="blog">
           <Blogs />
         </div>
         <div id="map">
-          <MapSection/>
+          <MapSection />
         </div>
       </main>
-      
       <Footer />
+
+      {/* Floating WhatsApp Button */}
+      <a
+        href="https://wa.me/917068453216?text=Hello%20Sufi%20Eye%20Care!%20I%20would%20like%20to%20book%20an%20appointment."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110"
+        aria-label="Chat on WhatsApp"
+        title="Book Appointment on WhatsApp"
+      >
+        <FaWhatsapp size={28} />
+      </a>
     </div>
   );
 };
