@@ -4,51 +4,49 @@ import img2 from "../assets/img/blog2.jpg";
 import img3 from "../assets/img/blog3.jpg";
 import img4 from "../assets/img/blog4.jpg";
 import img5 from "../assets/img/blog5.jpg";
-import img6 from "../assets/img/blog6.jpg";
+// import img6 from "../assets/img/blog6.jpg";
 import { motion } from "framer-motion";
 
 const blogs = [
   {
     img: img1,
-    headline: "10 Daily Habits for Healthy Eyes",
-    description:
-      "Discover simple daily habits that can help you maintain sharp vision and prevent eye strain.",
     tag: "Eye Health",
+    headline: "The 20-20-20 Rule: Save Your Eyes from Screen Strain",
+    description:
+      "Spending hours on screens? Every 20 minutes, look at something 20 feet away for 20 seconds. This simple habit dramatically reduces digital eye strain, headaches, and blurry vision caused by prolonged screen use.",
+    readTime: "3 min read",
   },
   {
     img: img2,
-    headline: "Blue Light: How Screens Affect Your Vision",
+    tag: "Vision Care",
+    headline: "Warning Signs You Need an Eye Checkup Right Now",
     description:
-      "Learn how prolonged screen time can impact your eyes and what you can do to protect them.",
-    tag: "Digital Eye Strain",
+      "Blurry vision, frequent headaches, squinting, or seeing halos around lights — these are your eyes asking for help. Don't ignore early warning signs. A timely eye exam can catch serious conditions before they worsen.",
+    readTime: "4 min read",
   },
   {
     img: img3,
-    headline: "Foods That Boost Eye Health Naturally",
-    description:
-      "Explore nutritious foods rich in vitamins that support clear vision and eye strength.",
     tag: "Nutrition",
+    headline: "Best Foods for Sharp Vision and Strong Eye Health",
+    description:
+      "Carrots, spinach, eggs, fish, and citrus fruits are packed with Vitamin A, lutein, omega-3s, and antioxidants that protect your retina, reduce the risk of cataracts, and keep your vision sharp as you age.",
+    readTime: "4 min read",
   },
   {
     img: img4,
-    headline: "How to Prevent Dry Eyes During Screen Use",
+    tag: "Eye Care Tips",
+    headline: "How to Choose the Right Glasses for Your Face & Vision",
     description:
-      "Dry eyes are common with digital use. Get practical tips to keep your eyes moist and comfortable.",
-    tag: "Tips",
+      "Single vision, bifocal, or progressive? Round, square, or oval frames? The right glasses depend on your prescription, lifestyle, and face shape. Here's everything you need to know before picking your next pair.",
+    readTime: "5 min read",
   },
   {
     img: img5,
-    headline: "Importance of Annual Eye Checkups",
+    tag: "Children's Eyes",
+    headline: "Why Your Child's Eye Health Matters More Than You Think",
     description:
-      "Regular eye exams can detect early signs of diseases and keep your vision in top condition.",
-    tag: "Checkup",
-  },
-  {
-    img: img6,
-    headline: "Protecting Your Eyes from UV Rays",
-    description:
-      "Find out why sunglasses aren't just stylish — they're essential for your long-term eye health.",
-    tag: "UV Protection",
+      "80% of learning is visual. Undetected vision problems in children can affect reading, writing, and school performance. Learn the signs of poor eyesight in kids and why an early eye exam is one of the best gifts you can give them.",
+    readTime: "4 min read",
   },
 ];
 
@@ -67,7 +65,7 @@ const Blogs = () => {
         </p>
         <h1 className="text-3xl sm:text-4xl font-bold text-blue-900">Eye Care Blog</h1>
         <p className="mt-3 text-gray-500 max-w-xl mx-auto text-sm sm:text-base">
-          Learn how to take care of your eyes with our latest articles and expert tips.
+          Expert tips and insights to help you protect, maintain, and improve your vision.
         </p>
       </motion.div>
 
@@ -79,22 +77,27 @@ const Blogs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.08 }}
-            className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 transform cursor-pointer"
+            className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 transform cursor-pointer group"
           >
-            <img
-              src={blog.img}
-              alt={blog.headline}
-              className="w-full h-48 object-cover"
-            />
+            <div className="overflow-hidden">
+              <img
+                src={blog.img}
+                alt={blog.headline}
+                className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
             <div className="p-5 space-y-2">
-              <span className="text-xs font-semibold text-teal-600 bg-teal-50 px-2 py-1 rounded-full">
-                {blog.tag}
-              </span>
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-semibold text-teal-600 bg-teal-50 px-3 py-1 rounded-full">
+                  {blog.tag}
+                </span>
+                <span className="text-xs text-gray-400">{blog.readTime}</span>
+              </div>
               <h2 className="text-base font-bold text-gray-800 leading-snug pt-1">
                 {blog.headline}
               </h2>
               <p className="text-gray-500 text-sm leading-relaxed">{blog.description}</p>
-              <p className="text-teal-600 text-sm font-medium hover:text-teal-800 transition cursor-pointer pt-1">
+              <p className="text-teal-600 text-sm font-semibold hover:text-teal-800 transition cursor-pointer pt-1">
                 Read more →
               </p>
             </div>

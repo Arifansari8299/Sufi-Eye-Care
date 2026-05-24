@@ -2,11 +2,16 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import About from "./components/About";
+import StatsSection from "./components/StatsSection";
 import Services from "./components/Services";
+import WhyUs from "./components/WhyUs";
 import Doctors from "./components/Doctors";
+import Testimonials from "./components/Testimonials";
 import Blogs from "./components/Blogs";
-import Footer from "./components/Footer";
+import FAQ from "./components/FAQ";
 import MapSection from "./components/MapSection";
+import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 import { FaWhatsapp } from "react-icons/fa";
 
 const App = () => {
@@ -14,24 +19,16 @@ const App = () => {
     <div className="overflow-x-hidden">
       <Navbar />
       <main>
-        <div id="home">
-          <Home />
-        </div>
-        <div id="about">
-          <About />
-        </div>
-        <div id="services">
-          <Services />
-        </div>
-        <div id="doctors">
-          <Doctors />
-        </div>
-        <div id="blog">
-          <Blogs />
-        </div>
-        <div id="map">
-          <MapSection />
-        </div>
+        <div id="home"><Home /></div>
+        <div id="about"><About /></div>
+        <StatsSection />
+        <div id="services"><Services /></div>
+        <WhyUs />
+        <div id="doctors"><Doctors /></div>
+        <Testimonials />
+        <div id="blog"><Blogs /></div>
+        <FAQ />
+        <div id="map"><MapSection /></div>
       </main>
       <Footer />
 
@@ -46,6 +43,8 @@ const App = () => {
       >
         <FaWhatsapp size={28} />
       </a>
+
+      <ScrollToTop />
     </div>
   );
 };
