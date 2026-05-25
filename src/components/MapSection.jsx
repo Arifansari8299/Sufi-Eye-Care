@@ -102,7 +102,8 @@ const MapSection = () => {
         <div className="w-full h-72 sm:h-[420px]">
           <iframe
             title="Sufi Eye Care Location"
-            src="https://www.google.com/maps/embed?pb=!4v1749133636801!6m8!1m7!1s06MOYRJoUs8aFFJyANYT4A!2m2!1d26.3136901230133!2d84.15651910146681!3f34.625981024991646!4f11.432604254120406!5f0.7820865974627469"
+            // src="https://www.google.com/maps/embed?pb=!4v1749133636801!6m8!1m7!1s06MOYRJoUs8aFFJyANYT4A!2m2!1d26.3136901230133!2d84.15651910146681!3f34.625981024991646!4f11.432604254120406!5f0.7820865974627469"
+            src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2367.717992419934!2d84.15668184785068!3d26.31442227677601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3993adb4812904a5%3A0x18267580e4ccb618!2sSufi%20Eye%20Care!5e0!3m2!1sen!2sin!4v1779702015204!5m2!1sen!2sin"
             width="100%"
             height="100%"
             style={{ border: 0 }}
