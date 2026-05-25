@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-scroll";
-import { FaWhatsapp, FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaWhatsapp, FaPhone, FaEnvelope, FaMapMarkerAlt, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -22,6 +22,15 @@ const Footer = () => {
           >
             <FaWhatsapp size={16} />
             WhatsApp Us
+          </a>
+          <a
+            href="https://www.instagram.com/sufieyecare1?igsh=MXI5aTIybGh3OXdndQ=="
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-3 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 hover:opacity-90 text-white text-sm font-semibold px-4 py-2 rounded-lg transition duration-300"
+          >
+            <FaInstagram size={16} />
+            Follow on Instagram
           </a>
         </div>
 
