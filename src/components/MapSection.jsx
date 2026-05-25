@@ -128,7 +128,7 @@ const MapSection = () => {
           </div>
           <div className="flex gap-2 w-full sm:w-auto">
             <a
-              href="https://maps.google.com/?q=26.3136901230133,84.15651910146681"
+              href="https://maps.app.goo.gl/bCxDyWszzUHBGsGz7?g_st=ac"
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition duration-300"
