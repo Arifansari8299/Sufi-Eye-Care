@@ -116,16 +116,30 @@ const Contact = ({ closeForm }) => {
           </select>
 
           {/* Preferred Date */}
-          <div className="flex flex-col gap-1">
-            <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide px-1">
-            </label>
+          <div
+            className="relative w-full py-3 px-3 bg-[#d5f2ec] rounded-lg text-sm flex items-center justify-between cursor-pointer"
+            onClick={() => document.getElementById("appt-date").showPicker?.() || document.getElementById("appt-date").click()}
+          >
+            <span className={form.date ? "text-gray-700 font-medium" : "text-gray-400"}>
+              {form.date
+                ? new Date(form.date + "T00:00:00").toLocaleDateString("en-IN", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })
+                : "Choose Appointment Date"}
+            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-teal-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
             <input
-              className="w-full py-3 px-3 bg-[#d5f2ec] rounded-lg text-sm outline-none focus:ring-2 focus:ring-teal-400 text-gray-700"
+              id="appt-date"
               type="date"
               name="date"
               value={form.date}
               onChange={handleChange}
               min={todayStr}
+              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
             />
           </div>
 
