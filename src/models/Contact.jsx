@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { FaWhatsapp } from "react-icons/fa";
 
-const WHATSAPP_NUMBER = "917068453216"; // country code + number, no +
+const WHATSAPP_NUMBER = "917068453216";
 
 const Contact = ({ closeForm }) => {
   const [form, setForm] = useState({
@@ -10,6 +10,7 @@ const Contact = ({ closeForm }) => {
     lastName: "",
     phone: "",
     service: "",
+    date: "",
     message: "",
   });
 
@@ -19,20 +20,33 @@ const Contact = ({ closeForm }) => {
 
   const handleWhatsApp = (e) => {
     e.preventDefault();
-    const { firstName, lastName, phone, service, message } = form;
+    const { firstName, lastName, phone, service, date, message } = form;
     if (!firstName || !phone) {
       alert("Please enter your name and phone number.");
       return;
     }
-    const text = `Hello Sufi Eye Care! 👋\n\nI'd like to book an appointment.\n\n*Name:* ${firstName} ${lastName}\n*Phone:* ${phone}\n*Service:* ${service || "General Checkup"}\n*Message:* ${message || "N/A"}`;
+    const text = [
+      "Hello Sufi Eye Care! 👋",
+      "",
+      "I'd like to book an appointment.",
+      "",
+      `*Name:* ${firstName} ${lastName}`,
+      `*Phone:* ${phone}`,
+      `*Service:* ${service || "General Checkup"}`,
+      `*Preferred Date:* ${date || "Flexible"}`,
+      `*Message:* ${message || "N/A"}`,
+    ].join("\n");
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
     closeForm();
   };
 
+  const todayStr = new Date().toISOString().split("T")[0];
+
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50 px-4">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-6 relative">
+
         {/* Close button */}
         <button
           onClick={closeForm}
@@ -54,6 +68,7 @@ const Contact = ({ closeForm }) => {
         </div>
 
         <form onSubmit={handleWhatsApp} className="space-y-4">
+          {/* Name */}
           <div className="flex gap-3">
             <input
               className="w-1/2 py-3 px-3 bg-[#d5f2ec] rounded-lg text-sm outline-none focus:ring-2 focus:ring-teal-400"
@@ -74,6 +89,7 @@ const Contact = ({ closeForm }) => {
             />
           </div>
 
+          {/* Phone */}
           <input
             className="w-full py-3 px-3 bg-[#d5f2ec] rounded-lg text-sm outline-none focus:ring-2 focus:ring-teal-400"
             type="tel"
@@ -84,6 +100,7 @@ const Contact = ({ closeForm }) => {
             required
           />
 
+          {/* Service */}
           <select
             className="w-full py-3 px-3 bg-[#d5f2ec] rounded-lg text-sm outline-none focus:ring-2 focus:ring-teal-400 text-gray-600"
             name="service"
@@ -98,6 +115,21 @@ const Contact = ({ closeForm }) => {
             <option value="General Consultation">General Consultation</option>
           </select>
 
+          {/* Preferred Date */}
+          <div className="flex flex-col gap-1">
+            <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide px-1">
+            </label>
+            <input
+              className="w-full py-3 px-3 bg-[#d5f2ec] rounded-lg text-sm outline-none focus:ring-2 focus:ring-teal-400 text-gray-700"
+              type="date"
+              name="date"
+              value={form.date}
+              onChange={handleChange}
+              min={todayStr}
+            />
+          </div>
+
+          {/* Message */}
           <textarea
             className="w-full py-3 px-3 bg-[#d5f2ec] rounded-lg text-sm outline-none focus:ring-2 focus:ring-teal-400 resize-none"
             name="message"
@@ -107,6 +139,7 @@ const Contact = ({ closeForm }) => {
             onChange={handleChange}
           />
 
+          {/* Submit */}
           <button
             type="submit"
             className="w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold py-3 rounded-lg transition duration-300"

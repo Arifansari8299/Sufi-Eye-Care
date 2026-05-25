@@ -24,7 +24,7 @@ const reviews = [
   },
   {
     name: "Mohammad Arif",
-    location: "Deoria, UP",
+    location: "siwan, Bihar",
     rating: 5,
     review:
       "Excellent service! Booked my appointment on WhatsApp and got seen the same day. The contact lenses they recommended are perfect for me.",
@@ -32,7 +32,7 @@ const reviews = [
   },
   {
     name: "Sunita Devi",
-    location: "Gorakhpur, UP",
+    location: "Mairwa, Bihar",
     rating: 5,
     review:
       "Very caring staff and expert doctor. My eye problem was diagnosed quickly and the medicines worked well. Will definitely come back.",
